@@ -1,32 +1,4 @@
-class TestCase:
-    def __init__(self, name):
-        self.name = name
-
-    def set_up(self):
-        pass
-
-    def run(self):
-        result = TestResult()
-        result.test_started()
-        self.set_up()
-        method = getattr(self, self.name)
-        method()
-        self.tear_down()
-        return result
-
-    def tear_down(self):
-        pass
-
-
-class TestResult:
-    def __init__(self):
-        self.run_count = 0
-
-    def test_started(self):
-        self.run_count += 1
-
-    def summary(self):
-        return f"{self.run_count} run, 0 failed"
+from test import TestCase
 
 
 class WasRun(TestCase):
